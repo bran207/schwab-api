@@ -1,13 +1,7 @@
-from schwab.models.utils import SchwabDataModel
-from schwab.models.market_data.quote.utils import ASSET_MAIN_TYPE
+from schwab.models.market_data.quote.model import CoreSchwabQuote
 from schwab.models.market_data.quote.forex.quote import SchwabForexQuoteForex
-from schwab.models.market_data.quote.forex.refrence import SchwabForexReference
+from schwab.models.market_data.quote.forex.reference import SchwabForexReference
 
 
-class SchwabForexQuote(SchwabDataModel):
-    asset_main_type: ASSET_MAIN_TYPE
-    ssid: int
-    symbol: str
-    realtime: bool
-    quote: SchwabForexQuoteForex
-    refrence: SchwabForexReference
+class SchwabForexQuote(CoreSchwabQuote[SchwabForexQuoteForex, SchwabForexReference]):
+    pass

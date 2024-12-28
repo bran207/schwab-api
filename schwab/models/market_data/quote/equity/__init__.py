@@ -1,15 +1,24 @@
 from typing import Literal
 
-from schwab.models.utils import SchwabDataModel
-from schwab.models.market_data.quote.utils import ASSET_MAIN_TYPE
+from schwab.models.market_data.quote.equity.extended import (
+    SchwabEquityExtendedMarketQuote,
+)
+from schwab.models.market_data.quote.equity.fundamental import (
+    SchwabEquityFundamentalQuote,
+)
+from schwab.models.market_data.quote.equity.quote import SchwabQuoteEquity
+from schwab.models.market_data.quote.equity.reference import SchwabEquityQuoteReference
+from schwab.models.market_data.quote.equity.regular_market import (
+    SchwabEquityQuoteRegularMarket,
+)
+from schwab.models.market_data.quote.model import CoreSchwabQuote
 
 
-class SchwabEquityQuote(SchwabDataModel):
-    asset_main_type: ASSET_MAIN_TYPE
+class SchwabEquityQuote(CoreSchwabQuote[SchwabQuoteEquity, SchwabEquityQuoteReference]):
     asset_sub_type: Literal[
         "COE", "PRF", "ADR", "GDR", "CEF", "ETF", "ETN", "UIT", "WAR", "RGT"
     ]
-    ssid: int
-    symbol: str
-    realtime: bool
     quote_type: Literal["NBBO", "NFL"]
+    extended: SchwabEquityExtendedMarketQuote
+    fundamental: SchwabEquityFundamentalQuote
+    regular: SchwabEquityQuoteRegularMarket
