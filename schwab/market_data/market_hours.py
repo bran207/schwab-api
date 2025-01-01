@@ -1,7 +1,8 @@
 from datetime import date
-from schwab.utils import ClientSession
-from schwab.models.market_data.market.hours import MarketHours
+
 from schwab.market_data.utils import MARKET_IDS
+from schwab.models.market_data.market.hours import MarketHours
+from schwab.utils import ClientSession
 
 
 class SchwabMarketDataMarketHoursClient(ClientSession):

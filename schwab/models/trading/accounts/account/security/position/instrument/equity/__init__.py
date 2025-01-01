@@ -1,7 +1,5 @@
-from schwab.models.trading.accounts.account.security.position.instrument.utils import (
-    SchwabAccountPositionInstrumentModel,
-)
+from schwab.models.trading.currency import SchwabCurrency
 
 
-class SchwabAccountPositionEquityPositionModel(SchwabAccountPositionInstrumentModel):
+class SchwabAccountPositionEquityPositionModel(SchwabCurrency):
     pass
