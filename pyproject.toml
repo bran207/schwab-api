@@ -1,0 +1,11 @@
+[project]
+name = "schwab"
+version = "0.1.0"
+description = "A Python Wrapper for Schwab's Individual Trading API"
+readme = "readme.md"
+requires-python = ">=3.13"
+dependencies = [
+    "authlib>=1.6.6",
+    "pydantic>=2.12.5",
+    "requests>=2.32.5",
+]
