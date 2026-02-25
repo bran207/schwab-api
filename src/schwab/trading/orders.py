@@ -1,9 +1,23 @@
 from datetime import datetime, timedelta
 from typing import Literal
 from typing_extensions import Annotated
+from pydantic import Field
 from pydantic.functional_validators import AfterValidator
 from schwab.utils import ClientSession
 from schwab.models.trading.order import SchwabOrder
+from schwab.session import SchwabAPISession
+
+
+# class ActionableSchwabOrder(SchwabOrder):
+#     _session: SchwabAPISession = Field(exclude=True)
+
+#     def cancel(self):
+#         return SchwabOrders(client=self._session).delete(
+#             account_number=self.account_number,
+#             order_id=self.order_id,
+#         )
+#         pass
+
 
 SchwabOrderStatus = Literal[
     "AWAITING_PARENT_ORDER",
